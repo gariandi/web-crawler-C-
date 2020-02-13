@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Reflection.Metadata;
-using System.Timers;
 using HtmlAgilityPack;
 
-
-namespace raspador
+namespace Raspador
 {
     class Program
     {
@@ -32,12 +29,10 @@ namespace raspador
            
            var doc = web.Load("https://trends.google.com/trends/hottrends/visualize?pn=p18");                    
            //var doc = web.Load("https://trends.google.com/trends/hottrends/visualize?nrow=5&ncol=5&pn=p18");
-           var palavras = doc.DocumentNode.SelectSingleNode("//div[@id=`0-0`]").InnerHtml;   
-
+           
+           var palavras = doc.DocumentNode.SelectSingleNode("//*[@id='0-0']").InnerHtml;
            Console.WriteLine(palavras);
+           
         }
     }
 }
-
-
-
